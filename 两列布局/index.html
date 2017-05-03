@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>两列布局</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.left {
+				width: 30%;
+				height: 500px;
+				background: #E4393C;
+				float: left;
+			}
+			
+			.right {
+				width: 70%;
+				height: 500px;
+				background: #666666;
+				float: right;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main clearfix">
+			<div class="left">left</div>
+			<div class="right">right</div>
+		</div>
+
+	</body>
+
+</html>

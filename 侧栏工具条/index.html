@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>侧栏工具条</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.toolber {
+				position: fixed;
+				bottom: 10px;
+				right: 10%;
+			}
+			
+			.toolber-item {
+				margin-top: 5px;
+				position: relative;
+			}
+			
+			.toolber-item a {
+				background: url(img/toolbar.png);
+				display: block;
+				height: 52px;
+				width: 52px;
+			}
+			
+			.toolber-item-message a {
+				background-position: 0 -426px;
+			}
+			
+			.toolber-item-message a:hover {
+				background-position: 0 -488px;
+			}
+			
+			.toolber-item-app a {
+				position: relative;
+				background-position: 0 -550px;
+			}
+			
+			.toolber-item-app a:hover {
+				background-position: 0 -612px;
+			}
+			
+			.toolber-item-backtop a {
+				display: none;
+				background-position: 0 -674px;
+			}
+			
+			.toolber-item-backtop a:hover {
+				background-position: 0 -736px;
+			}
+			
+			.toolber-item-weixin a {
+				background-position: 0 -798px;
+			}
+			
+			.toolber-item-weixin a:hover {
+				background-position: 0 -860px;
+			}
+			.toolber-qrcode{position: absolute;
+			width:160px;
+			height: 200px;
+			background: url(img/toolbar.png);
+			-webkit-transform:scale(0) ; 
+			-webkit-transform-origin: 95% 95%;
+			-webkit-transition: all 1s;
+			left:-165px;
+			bottom: 0;}
+			.toolber-qrcode-message{
+				background-position: -6px -2px;
+				
+			}
+			.toolber-qrcode-app{
+				background-position: -6px -226px;				
+			}
+			.toolber-item:hover .toolber-qrcode{
+				-webkit-transform: scale(1);
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<p>aaaaaa</p>
+		<ul class="toolber">
+			<li class="toolber-item toolber-item-message">
+				<a href="javascript:;"><span class="toolber-qrcode toolber-qrcode-message"></span></a>
+			</li>
+			<li class="toolber-item toolber-item-app">
+				<a href="javascript:;;"><span class="toolber-qrcode toolber-qrcode-app"></a>
+			</li>
+			<li class="toolber-item toolber-item-weixin">
+				<a href="javascript:;"></a>
+			</li>
+			<li class="toolber-item toolber-item-backtop">
+				<a href="javascript:;"></a>
+			</li>
+			
+		</ul>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				topbtn()
+				$(window).on("scroll",topbtn)
+			})
+
+			function topbtn() {
+				console.log($(window).height())
+				var topbtn = $(".toolber-item-backtop a");
+				if($(window).scrollTop() > $(window).height()) {
+					topbtn.css("display","block")
+				}else{
+					topbtn.fadeOut()
+				}
+			}
+		</script>
+	</body>
+
+</html>

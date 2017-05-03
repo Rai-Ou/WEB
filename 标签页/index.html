@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>标签页</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.clearfix {
+				overflow: auto;
+				_height: 1%
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.content {
+				width: 300px;
+				margin: 0 auto;
+			}
+			
+			.nav .nav-title {
+				border: 1px solid #000;
+				width: 98px;
+				float: left;
+			}
+			
+			.box {
+				border: 1px solid #000;
+				border-top: none;
+			}
+			
+			.box .box-item {
+				height: 300px;
+				display: none;
+			}
+			
+			.box .box-item-on {
+				display: block;
+			}
+			
+			.nav .nav-title-on {
+				border-bottom: none;
+			}
+		</style>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div class="content">
+			<div class="nav">
+				<ul class="clearfix">
+					<li class="nav-title nav-title-on">title1</li>
+					<li class="nav-title">title2</li>
+					<li class="nav-title">title3</li>
+				</ul>
+			</div>
+			<div class="box">
+				<div class="box-item box-item-on">text1</div>
+				<div class="box-item">text2</div>
+				<div class="box-item">text3</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var lis = $(".nav-title");
+				var items = $(".box-item");
+				lis.each(function(index, val) {
+					var self = $(this);
+					self.on("click", function() {
+						lis.removeClass("nav-title-on");
+						self.addClass("nav-title-on");
+						items.removeClass("box-item-on");
+						items.eq(index).addClass("box-item-on")
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

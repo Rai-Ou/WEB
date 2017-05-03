@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>图片展示布局</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.clearfix{
+				*zoom: 1;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.photolist {
+				width: 960px;
+				margin: 0 auto;
+			}
+			
+			.photo {
+				float: left;
+				width: 300px;
+				height: 200px;
+				position: relative;
+			}
+			
+			.photo img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.photo dl {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background: #000;
+				opacity: 0.5;
+				display: none;
+			}
+			
+			.photo dt,
+			.photo dd {
+				color: #fff;
+			}
+			
+			.photo dt {
+				text-align: center;
+			}
+			
+			.photo:hover dl {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="photolist clearfix">
+			<div class="photo">
+				<img src="{{photo}}" alt="{{title}}" />
+				<dl>
+					<dt>{{title}}</dt>
+					<dd>{{text}}</dd>
+				</dl>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+addData()
+			})
+			var data=[
+			{
+				src: "img/1.jpg",
+				title: "图片1标题",
+				text: "图片1内容介绍图片1内容介绍图片1内容介绍图片1内容介绍图片1内容介绍"
+			},
+			{
+				src: "img/2.jpg",
+				title: "图片2标题",
+				text: "图片2内容介绍图片2内容介绍图片2内容介绍图片2内容介绍图片2内容介绍图片2内容介绍"
+			},
+			{
+				src: "img/3.jpg",
+				title: "图片3标题",
+				text: "图片3内容介绍图片3内容介绍图片3内容介绍图片3内容介绍图片3内容介绍图片3内容介绍图片3内容介绍"
+			},
+			{
+				src: "img/4.jpg",
+				title: "图片4标题",
+				text: "图片4内容介绍图片4内容介绍图片4内容介绍图片4内容介绍"
+			},{
+				src: "img/5.jpg",
+				title: "图片5标题",
+				text: "图片5内容介绍图片5内容介绍图片5内容介绍图片5内容介绍图片5内容介绍图片5内容介绍图片5内容介绍图片5内容介绍"
+			},
+			]
+
+			function addData() {
+				var canvas=$(".photolist");
+				var out_canvas=[];
+				$.each(data, function(i) {
+					var _html=$.trim(canvas.html())
+					.replace(/{{photo}}/g,data[i].src)
+					.replace(/{{title}}/g,data[i].title)
+					.replace(/{{text}}/g,data[i].text);
+					out_canvas.push(_html)
+				});
+				canvas.html(out_canvas.join(""))
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>卡片列表模式切换</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 14px;font-family: "微软雅黑";
+			}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.clearfix{*zoom: 1;}
+			.box {
+				width: 90%;
+				margin: 0 auto;
+				border: 1px solid #ccc;
+			}
+			
+			.top {
+				height: 40px;
+			}
+			
+			.top a {
+				display: block;
+				width: 16px;
+				height: 16px;
+				float: right;
+				margin: 5px;
+			}
+			
+			.btn-list-off {
+				background: url(http://img.mukewang.com/53352d61000153cc00710057.jpg) no-repeat -38px 0px;
+			}
+			
+			.btn-card-on {
+				background: url(http://img.mukewang.com/53352d61000153cc00710057.jpg) no-repeat -21px -34px;
+			}
+			
+			.btn-list-on {
+				background: url(http://img.mukewang.com/53352d61000153cc00710057.jpg) no-repeat -21px 0px;
+			}
+			
+			.btn-card-off {
+				background: url(http://img.mukewang.com/53352d61000153cc00710057.jpg) no-repeat -38px -32px;
+			}
+			
+			.item-list {
+				padding: 5px;
+				list-style: none;
+			}
+			
+			.item {
+				width: 164px;
+				border: 1px solid #CCCCCC;
+				margin: 10px;
+				float: left;
+			}
+			
+			.item-img {
+				display: block;
+				width: 164px;
+				height: 164px;
+				overflow: hidden;
+			}
+			
+			p a,
+			p span {
+				display: block;
+				line-height: 23px;
+				padding-left: 5px;
+			}
+			
+			.item .bottom {
+				background: #CCCCCC;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+			.small{
+				width: 54px;height: 54px;float: left;margin: 5px;
+			}
+			.small img{width: 100%;height: 100%;}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div class="top">
+				<a href="javascript:;" title="卡片模式" id="btn1" class="btn-card-on"></a>
+				<a href="javascript:;" title="列表模式" id="btn2" class="btn-list-off"></a>
+
+			</div>
+			<ul class="item-list clearfix">
+				<li class="item">
+					<a href="#" class="item-img "><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+				<li class="item">
+					<a href="#" class="item-img"><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+				<li class="item">
+					<a href="#" class="item-img"><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+				<li class="item">
+					<a href="#" class="item-img"><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+				<li class="item">
+					<a href="#" class="item-img"><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+				<li class="item">
+					<a href="#" class="item-img"><img src="http://img.mukewang.com/53ab7d16000159a801640236.jpg" /></a>
+					<p>
+						<a href="#">姓名</a>
+						<span>辽宁</span>
+						<span>21个共同好友</span>
+					</p>
+					<div class="bottom">
+						未分组的好友
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				styleSwitch()
+			})
+			function styleSwitch(){
+				var btn1=$("#btn1");
+				var btn2=$("#btn2");
+				var img=$(".item-img");
+				btn1.on("click",function(){
+					btn2.removeClass("btn-list-on").addClass("btn-list-off");
+					$(this).removeClass("btn-card-off").addClass("btn-card-on")
+					img.removeClass("small")
+				});
+				btn2.on("click",function(){
+					btn1.removeClass("btn-card-on").addClass("btn-card-off");
+					$(this).removeClass("btn-list-off").addClass("btn-list-on");
+					img.addClass("small")
+				})
+			}
+		</script>
+	</body>
+
+</html>
