@@ -4,18 +4,41 @@
 		<meta charset="UTF-8">
 		<title>手风琴效果</title>
 		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.content {width: 520px;height: 200px;}
+			.content ul{list-style: none;}
+			.content ul li{float: left;}
+			.content li a{display: block; width: 80px;height:200px;-webkit-transition: all 0.2s;}
+			.content .on{width: 200px;}
 			
+			#landscapes{background: url(img/1.png);}
+			#people{background: url(img/2.png);}
+			#nature{background: url(img/3.png);}
+			#urban{background: url(img/4.png);}
+			#abstract{background: url(img/5.png);}
 		</style>
 	</head>
 	<body>
 		<div class="content">
 			<ul>
-				<li><a href="javascript:;">Landscapes</a></li>
-				<li><a href="javascript:;">People</a></li>
-				<li><a href="javascript:;">Nature</a></li>
-				<li><a href="javascript:;">Urban</a></li>
-				<li><a href="javascript:;">Abstract</a></li>
+				<li ><a id="landscapes" class="on" href="javascript:;"></a></li>
+				<li ><a id="people" href="javascript:;"></a></li>
+				<li ><a id="nature"href="javascript:;"></a></li>
+				<li ><a id="urban"href="javascript:;"></a></li>
+				<li ><a id="abstract"href="javascript:;"></a></li>
 			</ul>
 		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $a=$(".content").find("a");
+				$a.on("mouseover",function(){
+					
+					$a.removeClass("on");
+					$(this).addClass("on")
+				})
+			})
+			
+		</script>
 	</body>
 </html>
