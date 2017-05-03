@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴效果2</title>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.clearfix{*zoom: 1;}
+		.clearfix:after{content: "";display: block;clear: both;}
+		.wrap {
+			width: 708px;
+			height: 102px;
+			border: 1px solid #ccc;
+		}
+		
+		.wrap ul {
+			list-style: none;
+		}
+		
+		.wrap ul li {
+			float: left;
+			border: 1px dashed #ccc;
+		}
+		.wrap ul li a {
+			display: block;
+			text-decoration: none;
+			position: relative;
+			padding: 5px;
+			height: 90px;
+			width: 140px;
+			
+		}
+		.wrap img{position: absolute; right: 0;height: 50%;bottom: 0;}
+		.wrap h3{font-family: "微软雅黑";font-size: 16px;}
+		.wrap .info{font-size: 14px;color: #999;}
+		.wrap .price{color: #FF0000;}
+		.wrap .big h3{padding: 10px;font-family: "微软雅黑";}
+		.wrap .big .info{color: #999}
+		.wrap .big .price{color: #FF0000;margin-left: 10px;}
+		.wrap .big .price strong{font-size: 24px;}
+		.wrap .big{
+			width: 240px;
+			height: 90px;
+		}
+		.wrap .big img{position: absolute; right: 0;height: 90%;bottom: 0;}
+		
+	</style>
+
+	<body>
+		<div class="wrap">
+			<ul class="clearfix">
+				<li >
+					<a class="big" href="javascritp:;">
+						<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" />
+						<h3>聚美妆</h3>
+						<p class="info">聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+						
+					</a>
+				</li>
+				<li >
+					<a  href="javascritp:;">
+						<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" />
+						<h3>聚美妆</h3>
+						<p class="info">聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+						
+					</a>
+				</li>
+				<li >
+					<a  href="javascritp:;">
+						<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" />
+						<h3>聚美妆</h3>
+						<p class="info">聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+						
+					</a>
+				</li>
+				<li >
+					<a  href="javascritp:;">
+						<img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" />
+						<h3>聚美妆</h3>
+						<p class="info">聚美妆1/2周年庆</p>
+						<p class="price"><strong>1</strong><i>折起</i></p>
+						
+					</a>
+				</li>
+			</ul>
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					var oA=$(".wrap").find("a");
+					oA.on("mouseover",function(){
+						oA.removeClass("big")
+						$(this).addClass("big")
+					})
+				})
+			</script>
+		</div>
+	</body>
+
+</html>
