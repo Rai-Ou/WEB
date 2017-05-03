@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>水平轮播图</title>
+		<style type="text/css">
+			body,
+			form,
+			ul,
+			li,
+			p,
+			dl,
+			dd,
+			dt,
+			h,
+			td,
+			th,
+			h3 {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			
+			li,
+			ul {
+				list-style: none;
+			}
+			
+			.content {
+				width: 600px;
+				height: 400px;
+				margin: 0 auto;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#pic-list {
+				width: 4200px;
+				height: 400px;
+				position: absolute;
+				top: 0;
+				left: -600px;
+			}
+			
+			#pic-list li {
+				float: left;
+			}
+			
+			#pic-ctrl {
+				position: absolute;
+				bottom: 30px;
+				left: 50%;
+				margin-left: -75px;
+			}
+			
+			#pic-ctrl li {
+				height: 20px;
+				width: 20px;
+				background: #fff;
+				color: #000;
+				line-height: 20px;
+				text-align: center;
+				border-radius: 50%;
+				opacity: 0.5;
+				float: left;
+				margin: 0 5px;cursor: pointer;
+			}
+			
+			#pic-ctrl .pic-ctrl-on {
+				background: red;
+				color: #fff;
+			}
+			
+			#next,
+			#prev {
+				display: block;
+				width: 50px;
+				height: 50px;
+				background: #000;
+				opacity: 0.5;
+				color: #fff;
+				text-decoration: none;
+				text-align: center;
+				line-height: 50px;
+				position: absolute;
+				top: 175px;
+				display: none;
+			}
+			
+			#next {
+				right: 0;
+			}
+			
+			#prev {
+				left: 0;
+			}
+			
+			.content:hover #next,
+			.content:hover #prev {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content ">
+			<ul id="pic-list">
+				<li><img src="img/5.jpg" /></li>
+				<li><img src="img/1.jpg" /></li>
+				<li><img src="img/2.jpg" /></li>
+				<li><img src="img/3.jpg" /></li>
+				<li><img src="img/4.jpg" /></li>
+				<li><img src="img/5.jpg" /></li>
+				<li><img src="img/1.jpg" /></li>
+			</ul>
+			<ul id="pic-ctrl">
+				<li class="pic-ctrl-on">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<a id="prev" href="javascript:;">上一张</a>
+			<a id="next" href="javascript:;">下一张</a>
+
+		</div>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				show()
+			})
+
+			function show() {
+				var content = $(".content");
+				var pic = $("#pic-list");
+				var picCtrl=$("#pic-ctrl").find("li");
+				var prev = $("#prev");
+				var next = $("#next");
+				var index = 1;
+				var time="";
+				//点击上一页下一页切换
+				next.on("click", function() {
+					if(pic.is(":animated")){
+						return
+					};
+					if(index >= 5) {
+						index = 0;
+						pic.css("left", 0)
+					};
+					index++;
+					pic.animate({ left: "-=600px" });
+					picCtrlShow();
+				})
+				prev.on("click", function() {
+					if(pic.is(":animated")){
+						return
+					};
+					if(index <= 1) {
+						index = 6;
+						pic.css("left", "-3600px")
+					}
+					index--;
+					pic.animate({ left: "+=600px" });
+					picCtrlShow();
+					
+				})
+//				页码按钮切换样式
+				function picCtrlShow(){
+					picCtrl.removeClass("pic-ctrl-on");
+					picCtrl.eq(index-1).addClass("pic-ctrl-on")
+				}
+				//点击页码按钮切换图片
+				picCtrl.on("click",function(){
+					index=$(this).index()+1;
+					pic.animate({left:index*-600+"px"});
+					picCtrlShow()
+				})
+				//自动播放
+				autoPlay()
+				function autoPlay(){
+					time=setInterval(function(){
+					next.click()
+				},3000)
+				}
+				//鼠标移入取消自动播放
+				content.on("mouseover",function(){
+					clearInterval(time)
+				}).on("mouseout",function(){
+					autoPlay()
+				})
+			}
+		</script>
+	</body>
+
+</html>
