@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页下拉滚动条定位导航</title>
+	</head>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul {
+			list-style: none;
+		}
+		
+		.content {
+			width: 900px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		
+		.content h1 {
+			font-size: 24px;
+			font-family: "微软雅黑";
+			color: #08b;
+		}
+		
+		.item {
+			border: 1px #08b solid;
+			padding: 20px;
+		}
+		
+		.item h2 {
+			border-bottom: 2px solid #0088BB;
+		}
+		
+		.item li {
+			display: inline-block;
+			width: 240px;
+			height: 240px;
+			margin: 10px;
+		}
+		
+		.item img {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.menu {
+			position: fixed;
+			right: 60px;
+			bottom: 30px;
+		}
+		
+		.menu a {
+			display: block;
+			height: 40px;
+			width: 60px;
+			text-align: center;
+			text-decoration: none;
+			color: #000000;
+			font-family: "微软雅黑";
+			font-weight: bold;
+			line-height: 40px;
+			font-size: 14px;
+		}
+		.menu .menu-on {background: #0088BB;color: #fff;}
+	</style>
+
+	<body>
+		<div class="content">
+			<h1>XX购物网</h1>
+			<div class="item" id="item1">
+				<h2>1F 男装</h2>
+				<ul>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="item" id="item2">
+				<h2>2F 女装</h2>
+				<ul>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="item" id="item3">
+				<h2>3F 美妆</h2>
+				<ul>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="item" id="item4">
+				<h2>4F 数码</h2>
+				<ul>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="item" id="item5">
+				<h2>5F 母婴</h2>
+				<ul>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="http://img.mukewang.com/53660fce0001111903990422.jpg" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+			<ul class="menu">
+				<li>
+					<a class="menu-on" href="#item1">1F 男装</a>
+				</li>
+				<li>
+					<a href="#item2">2F 女装</a>
+				</li>
+				<li>
+					<a href="#item3">3F 美妆</a>
+				</li>
+				<li>
+					<a href="#item4">4F 数码</a>
+				</li>
+				<li>
+					<a href="#item5">5F 母婴</a>
+				</li>
+			</ul>
+		</div>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		menu();
+		$(window).on("scroll",function(){
+			scroll()
+		})
+	})
+	//点击menu定位
+	function menu(){
+		var menu=$('.menu').find('a');
+		menu.on('click',function(){
+			menu.removeClass('menu-on');
+			$(this).addClass('menu-on')
+		})
+	}
+	//滚动页面定位
+	function scroll(){
+		var scrollTop=$(window).scrollTop();
+		var items=$(".item");
+		var menu=$('.menu').find('a');
+		var menuId="";
+		items.each(function(index,val){
+			var self=$(this);
+			if(scrollTop>self.offset().top-200){
+				menu.removeClass('menu-on');
+			menu.eq(index).addClass('menu-on')
+			}
+			
+		})
+	}
+</script>
+	</body>
+
+</html>

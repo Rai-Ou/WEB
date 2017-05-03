@@ -187,17 +187,27 @@
 		<script type="text/javascript">
 			$(function() {
 				topbtn()
+				topbtnclick()
 				$(window).on("scroll",topbtn)
 			})
 
 			function topbtn() {
-				console.log($(window).height())
+				
 				var topbtn = $(".toolber-item-backtop a");
 				if($(window).scrollTop() > $(window).height()) {
 					topbtn.css("display","block")
 				}else{
 					topbtn.fadeOut()
 				}
+			}
+			function topbtnclick(){
+				var topbtn = $(".toolber-item-backtop a");
+				topbtn.on("click",function(){
+					if(!$('body').is(":animated")){
+						$("body").animate({scrollTop:"0px"},600)
+					}
+					
+				})
 			}
 		</script>
 	</body>
