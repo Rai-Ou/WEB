@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>页面广告</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#content {
+				width: 960px;
+				height: 1000px;
+				margin: 0 auto;
+			}
+			#ad{width: 960px; margin: 0 auto;position: relative;display: none;}
+			#close{position: absolute;top: 5px;right: 5px;cursor: pointer;display: none;}
+			#adcur{display: none;}
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="ad">
+			<img id="adcon" src="http://img.mukewang.com/52fdb1ce0001e92d09620386.jpg" width="960" height="385" />
+			<img id="adcur" src="http://img.mukewang.com/52fdb21a0001a0eb11990068.jpg" width="960" height="80" />
+			<span id="close">X</span>
+		</div>
+
+		<div id="content"><img src="http://img.mukewang.com/52fdb1930001795a09601700.jpg" /></div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				adShow()
+			})
+			function adShow(){				
+				var ad=$("#ad");
+				var adH=$("#adcur").height();
+				var close=$("#close");
+				ad.slideDown(3000);
+				setTimeout(function(){
+					ad.animate({height:adH},3000);
+					setTimeout(function(){
+						$("#adcon").hide();
+						$("#adcur").show()
+						close.show()
+					},3000)
+				},4000)
+				close.on("click",function(){
+					ad.hide()
+				})
+			}
+			
+		</script>
+	</body>
+
+</html>

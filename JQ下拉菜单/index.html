@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS下拉菜单</title>
+		<style type="text/css">
+			body,
+			form,
+			ul,
+			li,
+			p,
+			dl,
+			dd,
+			dt,
+			h,
+			td,
+			th,
+			h3 {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+			}
+			
+			li,
+			ul {
+				list-style: none;
+			}
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.nav{width: 500px;margin: 0 auto;}
+			.nav ul li{float: left; position: relative;}
+			.nav ul li a{display: block;width: 100px;height: 40px;line-height: 40px;background: #ccc;
+			text-align: center;text-decoration: none;color: #000000;}
+			.nav ul li ul{position: absolute;display: none;}
+			.nav ul li ul li{margin-bottom: 2px;}
+			
+			.nav ul li a:hover{background: #666;color: #fff;}
+		</style>
+	</head>
+
+	<body>
+		<div class="nav">
+			<ul class="clearfix">
+				<li>
+					<a href="javascript:;">首页</a>
+				</li>
+				<li>
+					<a href="javascript:;">课程大厅</a>
+					<ul>
+						<li>
+							<a href="javascript:;">JavaScript</a>
+						</li>
+						<li>
+							<a href="javascript:;">JQuery</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">学习中心</a>
+					<ul>
+						<li>
+							<a href="javascript">视频中心</a>
+						</li>
+						<li>
+							<a href="javascript">案例中心</a>
+						</li>
+						<li>
+							<a href="javascript">交流平台</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:;">经典案例</a>
+				</li>
+				<li>
+					<a href="javascript:;">联系我们</a>
+				</li>
+			</ul>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var lis=$(".nav").find("li");
+				lis.on("mouseover",function(){
+					
+					$(this).children("ul").show()
+				}).on("mouseout",function(){
+					$(this).children("ul").hide()
+				})
+			})
+		</script>
+	</body>
+
+</html>
