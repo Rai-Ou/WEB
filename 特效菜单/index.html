@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>特效菜单</title>
+		<style type="text/css">
+			body,ul,li{margin: 0;padding: 0;}
+			ul,li{list-style: none;}
+			a{text-decoration: none;color: #000000;}
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.content{width: 500px;margin: 0 auto;}
+			#nav li{float: left;}
+			#nav li a{display: block;width:100px;height: 30px;line-height:30px;background: #ccc;text-align: center;
+			}
+			#nav li a:hover{background: #666;color: #fff;}
+			.wrap {width:500px;height: 70px;overflow: hidden;display: none;position: relative;}
+			#text{width: 2500px;position: absolute;}
+			#text li{float: left; width: 500px;height: 40px;background: #000000;text-align: center;
+			
+			}
+			#text li a{color: #fff;line-height: 40px;}
+			#text li a span{display: inline-block;width: 100px;margin: 0 auto;}
+			#btn1 {width: 500px;height: 30px;background: #CCCCCC;position: absolute;bottom: 0;}
+			
+		
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<ul id="nav" class="clearfix">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">课程中心</a></li>
+				<li><a href="#">学习中心</a></li>
+				<li><a href="#">个人中心</a></li>
+				<li><a href="#">关于我们</a></li>				
+			</ul>
+			<div class="wrap"><ul id="text"class="clearfix">
+					<li>
+						<a href="#"><span>
+							首页
+						</span></a>
+					</li>
+					<li>
+						<a href="#"><span>课程一</span><span>课程二</span></a>
+					</li>
+					<li>
+						<a href="#"><span>学习中心一</span><span>学习中心二</span></a>
+					</li>
+					<li>
+						<a href="#"><span>个人中心一</span><span>个人中心二</span></a>
+					</li>
+					<li>
+						<a href="#"><span>关于我们</span></a>
+					</li>
+				</ul>
+
+				<div id="btn1">
+
+				</div></div>
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					nav()
+				})
+				function nav(){
+					var lis=$("#nav").find("li");
+					var wrap=$(".wrap");
+					var text=$("#text");
+					var btn=$("#btn1")
+					lis.on("click",function(){
+						
+						var self=$(this);
+						console.log(self.index())
+//						text.css("left",self.index()*-500+"px")
+						text.animate({left:self.index()*-500+"px"},300)
+						wrap.slideDown()
+					})
+					btn.on("click",function(){
+						wrap.slideUp()
+					})
+				}
+			</script>
+		</div>
+	</body>
+</html>
