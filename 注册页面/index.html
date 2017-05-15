@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<style type="text/css">
+			body,
+			form,
+			ul,
+			li,
+			p,
+			dl,
+			dd,
+			dt,
+			h,
+			td,
+			th,
+			h3 {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			
+			li,
+			ul {
+				list-style: none;
+			}
+			
+			.clearfix {
+				*zoom: 1;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			a{text-decoration: none;}
+			a:hover{text-decoration:underline;}
+			.wrap {
+				width: 960px;
+				margin: 0 auto;
+			}
+			
+			form {
+				margin-top: 160px;
+			}
+			
+			.form-group {
+				position: relative;
+				height: 60px;
+			}
+			
+			.form-group label {
+				font-size: 16px;
+				font-family: "宋体";
+				font-weight: bold;
+				color: #666;
+				width: 100px;
+				display: inline-block;
+				margin-right: 10px;
+				text-align: right;
+				
+			}
+			
+			.form-group input {
+				border: 1px solid #ccc;
+				height: 30px;
+				font-size: 14px;
+				padding: 0 10px;
+				color: #666;
+				width: 260px;
+				
+			}
+			.help{position: absolute;top: 8px;left: 400px;}
+			#code{width:160px ;}
+			#code-img{height: 30px;vertical-align: bottom;}
+			.form-group-agreement {margin-left: 110px;}
+			.form-group-agreement input{vertical-align: -3px}
+			#btn-register{display: block; margin-top: 20px;height: 40px;background: #3F89EC;
+			width: 280px;line-height: 40px;text-align: center;font-size: 16px;color: #fff;
+			margin-left: 110px;
+		}
+			.help{display: none;}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<form action="#" method="post">
+				<div class="form-group">
+					<label for="mail">手机&#47邮箱</label>
+					<input type="text" id="mail" />
+					<span class="help">请输入中国大陆手机号码或常用邮箱，可用于登陆和找回密码</span>
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input type="password" id="password" />
+					<div class="help">
+						<ul>
+							<li>
+								<span class="pwd_icon">○</span><span>长度为6~14个字符</span>
+							</li>
+							<li>
+								<span class="pwd_icon">○</span><span>支持数字、大小写字母和标点符号</span>
+							</li>
+							<li>
+								<span class="pwd_icon">○</span><span>不允许有空格</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="code">验证码</label>
+					<input type="text" id="code" />
+					<img id="code-img" src="img/yzm.png" />
+					<span id="recode"><a href="javascript:;">换一张</a></span>
+				</div>
+				<div class="form-group-agreement">
+					<input type="checkbox" id="agreement"/>
+					<label for="agreement">						
+							我已阅读并接受 
+							<a href="javascript:;">《XXXX用户协议》</a>
+					</label>
+				</div>
+				<a href="javascript:;" id="btn-register">注册</a>
+			</form>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				help()
+			})
+			function help(){
+			
+				var formGroup=$(".form-group")
+				formGroup.on("focusin",function(e){
+					
+					var self=$(this);
+					self.find(".help").show()					
+				})
+				.on("focusout",function(e){
+					
+					var self=$(this);
+					self.find(".help").hide()					
+				})
+				
+			}
+		</script>
+	</body>
+
+</html>
