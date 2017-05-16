@@ -1,0 +1,48 @@
+		<style type="text/css">
+			body,
+			form,
+			ul,
+			li,
+			p,
+			dl,
+			dd,
+			dt,
+			h,
+			td,
+			th,
+			h3 {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			
+			li,
+			ul {
+				list-style: none;
+			}
+			.clearfix{*zoom: 1;}
+			.clearfix:after{content: "";display: block;clear: both;}
+			.header{height: 60px;background: #0055aa;line-height: 80px;margin-bottom: 15px;}
+			#logo{height: 40px;margin:10px; float: left;}
+			.header h1{float: left;color: #FFFFFF;display: block;height: 40px;
+			line-height: 40px;margin:10px;border-left: 1px solid #FFFFFF;padding: 0 15px;}
+			.content{margin-top: 100px;}
+			.wrap{width: 695px;margin: 0 auto;}
+			.content-top{border-bottom: 1px solid #ccc;}
+			.content-main .wrap div{margin-top: 30px;}
+			.nav{background: url(img/step1.png)no-repeat; height: 36px;}
+			input{border: 1px solid #ccc; width: 200px;height: 20px; padding: 5px 10px;}
+			.code img{vertical-align: middle}
+			#btn{display: block;width: 80px;height: 40px; background: #4995E0;
+			line-height: 40px;text-decoration: none;text-align: center;color: #FFFFFF;}
+			.nav2{background: url(img/step2.png);height: 36px;}
+			.yzm span,.yzm input,.yzm a{
+				margin-right: 10px;
+			}
+			#yzm{width: 90px;}
+			.nav3{background: url(img/step3.png);height: 36px;}
+			.new-password{position: relative;}
+			#password{margin-left: 32px;}
+			#info{background: url(img/tip.png)no-repeat;width: 290px;height: 54px;
+			position: absolute;right: 58px;font-size: 12px;padding-left: 10px;line-height: 12px;}
+		</style>
