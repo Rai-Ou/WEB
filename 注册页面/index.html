@@ -36,8 +36,15 @@
 				display: block;
 				clear: both;
 			}
-			a{text-decoration: none;}
-			a:hover{text-decoration:underline;}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			a:hover {
+				text-decoration: underline;
+			}
+			
 			.wrap {
 				width: 960px;
 				margin: 0 auto;
@@ -61,7 +68,6 @@
 				display: inline-block;
 				margin-right: 10px;
 				text-align: right;
-				
 			}
 			
 			.form-group input {
@@ -71,54 +77,98 @@
 				padding: 0 10px;
 				color: #666;
 				width: 260px;
-				
 			}
-			.help{position: absolute;top: 8px;left: 400px;}
-			#code{width:160px ;}
-			#code-img{height: 30px;vertical-align: bottom;}
-			.form-group-agreement {margin-left: 110px;}
-			.form-group-agreement input{vertical-align: -3px}
-			#btn-register{display: block; margin-top: 20px;height: 40px;background: #3F89EC;
-			width: 280px;line-height: 40px;text-align: center;font-size: 16px;color: #fff;
-			margin-left: 110px;
-		}
-			.help{display: none;}
+			
+			.help {
+				position: absolute;
+				top: 8px;
+				left: 400px;
+				display: none;
+			}
+			
+			#code {
+				width: 120px;
+			}
+			
+			#code-img {
+				height: 30px;
+				vertical-align: bottom;
+			}
+			
+			.form-group-agreement {
+				margin-left: 110px;
+			}
+			
+			.form-group-agreement input {
+				vertical-align: -3px
+			}
+			
+			#btn-register {
+				display: block;
+				margin-top: 20px;
+				height: 40px;
+				background: #3F89EC;
+				width: 280px;
+				line-height: 40px;
+				text-align: center;
+				font-size: 16px;
+				color: #fff;
+				margin-left: 110px;
+			}
+			
+			
+			
+			.error {
+				position: absolute;
+				top: 8px;
+				left: 400px;
+				color: #ff0000;
+				display: none;
+			}
+			.form-error input{
+				border: 1px solid #FF0000;
+			}
+			.form-error .error{
+				display: block;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div class="wrap">
 			<form action="#" method="post">
-				<div class="form-group">
+				<div class="form-group form-mail">
 					<label for="mail">手机&#47邮箱</label>
 					<input type="text" id="mail" />
 					<span class="help">请输入中国大陆手机号码或常用邮箱，可用于登陆和找回密码</span>
+					<span class="error">请填写正确的手机号码&#47邮箱</span>
 				</div>
-				<div class="form-group">
+				<div class="form-group form-password">
 					<label for="password">密码</label>
 					<input type="password" id="password" />
 					<div class="help">
 						<ul>
-							<li>
+							<li id="help-length">
 								<span class="pwd_icon">○</span><span>长度为6~14个字符</span>
 							</li>
-							<li>
+							<li id="help-text">
 								<span class="pwd_icon">○</span><span>支持数字、大小写字母和标点符号</span>
 							</li>
-							<li>
+							<li id="help-space">
 								<span class="pwd_icon">○</span><span>不允许有空格</span>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="form-group">
+				<div class="form-group form-group-code">
 					<label for="code">验证码</label>
 					<input type="text" id="code" />
 					<img id="code-img" src="img/yzm.png" />
 					<span id="recode"><a href="javascript:;">换一张</a></span>
+					<span class="error">请输入验证码</span>
 				</div>
 				<div class="form-group-agreement">
-					<input type="checkbox" id="agreement"/>
+					<input type="checkbox" id="agreement" />
 					<label for="agreement">						
 							我已阅读并接受 
 							<a href="javascript:;">《XXXX用户协议》</a>
@@ -128,24 +178,109 @@
 			</form>
 		</div>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				help()
+			$(function() {
+				reg()
 			})
-			function help(){
-			
-				var formGroup=$(".form-group")
-				formGroup.on("focusin",function(e){
-					
-					var self=$(this);
-					self.find(".help").show()					
+
+			function reg() {
+				//手机邮箱输入框
+				$("#mail").on("focusin", function() {
+					var mail=$(this).parent();
+						mail.removeClass("form-error");
+						mail.find(".help").show();
+					})
+					.on("focusout", function() {
+						var mail=$(this).parent()
+						mail.find(".help").hide();
+						//验证手机号码或邮箱号码
+						if(!isEmailOrPhone()) {
+							mail.addClass("form-error")
+						}
+					})
+				//密码输入框
+				$("#password")
+				.on("focusin", function() {
+					var password=$(this).parent();
+					password.removeClass("form-error");
+					password.find(".help").show();					
 				})
-				.on("focusout",function(e){
-					
+				.on("focusout", function() {
 					var self=$(this);
-					self.find(".help").hide()					
+					var password=self.parent();
+					var passwordHelp=password.find(".help");
+					if(checkLength()&&checkChar()&&!checkSpace()){
+						passwordHelp.hide();
+						
+					}else{
+						password.addClass("form-error")
+						if(self.val()==""){
+							passwordHelp.css("color","red");				
+							
+						}
+					}
 				})
-				
+				.on("keyup",function(){
+					var help=$(this).siblings(".help");
+					var lengthInfo=help.find("#help-length");
+					var textInfo=help.find("#help-text");
+					var spaceInfo=help.find("#help-space")
+					if(!checkLength()){
+						lengthInfo.css("color","red")
+					}else{
+						lengthInfo.css("color","#000000")
+					}
+					if(!checkChar()){
+						textInfo.css("color","red")
+					}else{
+						textInfo.css("color","#000000")
+					}
+					if(checkSpace()){
+						spaceInfo.css("color","red")
+					}else{
+						spaceInfo.css("color","#000000")
+					}
+				})
+				$("#btn-register").on("click",function(){
+					if(!isEmailOrPhone()){
+						$(".form-mail").addClass("form-error")
+					}
+					if($("#password").val()==""){
+						var formPassword=$(".form-password");
+						formPassword.addClass("form-error")
+							formPassword.find(".help").css("color","red").show();				
+							
+						}
+					if(checkCode()){
+						var formCode=$(".form-group-code");
+						formCode.addClass("form-error")
+						formCode.find(".error").show()
+					}
+				})
+				//验证手机号码或邮箱号码规则
+				var isEmailOrPhone = function() {
+					var mail = $("#mail");
+					return /^1[34578]\d{9}$/.test(mail.val()) || /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(mail)
+				}
+				var checkLength=function(){
+					var passwordLength=$("#password").val().length;
+					return passwordLength>=6&&passwordLength<=14;
+				}
+				var checkChar=function(){
+					var password=$("#password").val()
+					return /^(?![0-9]+$)(?![a-zA-Z]+$)/.test(password)
+				}
+				var checkSpace=function(){
+					var password=$("#password").val()					
+					return /\s/g.test(password)
+				}
+				var checkCode=function(){
+					var code=$("#code");
+					if(code.val()==""){
+						return true
+					}else{return false}
+				}
 			}
 		</script>
 	</body>
