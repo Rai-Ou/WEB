@@ -23,52 +23,68 @@
 			ul {
 				list-style: none;
 			}
+			a{text-decoration: none;}
 			.clearfix{*zoom: 1;}
 			.clearfix:after{content: "";display: block;clear: both;}
 			.wrap{width: 960px;margin: 0 auto;}
-			/*页头*/			
-			.header{height: 60px;background: #0055aa;}			
-			.logo img{width: 40px;height: 40px;margin: 10px;float: left;}
-			.logo h1{float:left;height: 40px;line-height: 40px;color: #FFF;margin: 10px;
-			padding-left: 10px;font-size: 28px;
-			border-left:1px solid #fff ;}
-			/*页脚*/
-			.footer p{color: #666;text-align: center;font-size: 12px;margin-top: 40px;}
-			/*登录页*/
-			.login-box{width: 418px;margin: 0 auto;background: #f5f5f5;border: 1px solid #e3e3e3;
-			margin-top: 100px;padding: 20px;}
-			.login-box .form-group{margin-bottom: 10px;}
-			.login-box .form-group label{
-				font-weight: bold;
-				margin: 10px;
-				font-size: 16px;
+			.mar-t10{
+				margin-top: 10px;
+			}.mar-t20{
+				margin-top: 20px;
 			}
-			.login-box .form-group input{
+			.mar-t100{margin-top: 100px;}
+			.lineh-40{height: 40px;line-height: 40px;}
+			
+			label{
+				font-weight: bold;
+				margin: 10px;	
+				font-size: 16px;	
+				text-align: right;		
+			}
+			.input {
 				border: 1px solid #E3E3E3;
 				width: 384px;
-				height: 40px;
-				margin: 10px;
-				padding-left: 10px;
-				font-size: 16px;
+				height: 38px;
+				
+				padding-left: 10px;	
+				font-size: 18px;	
+				vertical-align: middle;
 			}
-			#btn-login{
+			.input-sm {
+				width: 120px;
+			}
+			.btn{
 				display: inline-block;
 				background: #428bca;
 				width: 80px;
 				height: 40px;
-				text-align: center;
-				text-decoration: none;
+				text-align: center;				
 				font-size: 16px;
 				line-height: 40px;
 				margin: 10px;
 				color: #FFF;
 				border-radius: 4px;
 			}
-			#btn-login:hover{
+			.btn:hover{
 				background: #285e8e;
 			}
-			#btn-forget-password,#btn-register{
-				text-decoration: none;
+			.title{font-size: 16px;height: 40px;line-height: 40px;font-weight: bold;}
+			dt,dd{float: left;height: 40px;font-size: 14px;padding: 0 10px;line-height: 40px;}
+			dt{width:100px;text-align: right;}
+			
+			/*页头*/			
+			.header{height: 60px;background: #0055aa;}			
+			.logo img{width: 40px;height: 40px;margin: 10px;float: left;}
+			.logo h1{float:left;}
+			.logo h1 a{display: block;height: 40px;line-height: 40px;color: #FFF;margin: 10px;
+			padding-left: 10px;font-size: 28px;border-left:1px solid #fff ;}
+			/*页脚*/
+			.footer p{color: #666;text-align: center;font-size: 12px;margin-top: 40px;}
+			/*登录页*/
+			.login-box{width: 418px;margin: 100px auto 0 auto;background: #f5f5f5;border: 1px solid #e3e3e3;
+			padding: 20px;}
+			
+			#btn-forget-password,#btn-register{				
 				color: #428bca;
 				font-size: 16px;
 			}
@@ -77,36 +93,10 @@
 			}
 			/*密码找回*/
 			.retrieve-password{margin-top: 100px;}
-			.retrieve-password .top{border-bottom: 1px solid #ccc;}
-			.retrieve-password .top h2{font-size: 22px;}
-			.retrieve-password .main .wrap div{margin: 10px;font-size: 16px;}
-			.retrieve-password .step1{height: 36px;background: url(../img/step1.png);}
-			.retrieve-password .step2{background: url(../img/step2.png);height: 36px;}
-			.retrieve-password .step3{background: url(../img/step3.png);height: 36px;}
-			
-			.retrieve-password label{width: 180px;}
-			.retrieve-password input{border: 1px solid #E3E3E3;
-				width: 384px;
-				height: 40px;
-				margin: 10px;
-				padding-left: 10px;
-				font-size: 16px;}
-			.retrieve-password .code img{vertical-align: middle;}
-			#btn-next{
-				display: inline-block;
-				background: #428bca;
-				width: 80px;
-				height: 40px;
-				text-align: center;
-				text-decoration: none;
-				font-size: 16px;
-				line-height: 40px;
-				margin: 10px;
-				color: #FFF;
-				border-radius: 4px;
-			}
-			#btn-next:hover{
-				background: #285e8e;
-				
-			}
+			.retrieve-password .top{border-bottom: 1px solid #ccc;}	
+			.retrieve-password .step1{height: 36px;background: url(../img/step1.png)no-repeat;}
+			.retrieve-password .step2{background: url(../img/step2.png)no-repeat;height: 36px;}
+			.retrieve-password .step3{background: url(../img/step3.png)no-repeat;height: 36px;}			
+			.retrieve-password #code-img{vertical-align: middle;}
+		
 		</style>
