@@ -79,10 +79,12 @@
 			.retrieve-password{margin-top: 100px;}
 			.retrieve-password .top{border-bottom: 1px solid #ccc;}
 			.retrieve-password .top h2{font-size: 22px;}
-			.retrieve-password .main .wrap div{margin: 10px;}
+			.retrieve-password .main .wrap div{margin: 10px;font-size: 16px;}
 			.retrieve-password .step1{height: 36px;background: url(../img/step1.png);}
 			.retrieve-password .step2{background: url(../img/step2.png);height: 36px;}
-			.retrieve-password label{width: 180px;font-size: 16px;}
+			.retrieve-password .step3{background: url(../img/step3.png);height: 36px;}
+			
+			.retrieve-password label{width: 180px;}
 			.retrieve-password input{border: 1px solid #E3E3E3;
 				width: 384px;
 				height: 40px;
