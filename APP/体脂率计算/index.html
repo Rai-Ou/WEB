@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			#btn-open-reckon{
+				width: 80%;
+				margin: 50% auto 0 auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">体脂率计算器</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block mui-btn-outlined" id="btn-open-reckon">开始计算</button>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function() {
+				openReckon()
+			})
+
+			function openReckon() {
+				var btnOpenReckon = document.getElementById("btn-open-reckon");
+				btnOpenReckon.addEventListener("tap",
+					function() {
+						mui.openWindow({
+							url: 'reckon.html',
+							id: 'reckon'
+						})
+					}
+				)
+			}
+		</script>
+	</body>
+
+</html>

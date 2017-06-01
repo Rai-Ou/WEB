@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+	<style type="text/css">
+		.mui-input-group {
+			padding: 20px;
+		}
+		
+		.mui-input-row label {
+			width: 50%;
+		}
+		
+		.mui-input-row label~input {
+			width: 50%;
+		}
+		
+		.tizhilv {
+			margin-top: 20px;
+		}
+		
+		#tizhilv-num {
+			font-size: 48px;
+			text-align: center;
+			margin-top: 20px;
+			height: 50px;
+		}
+		table{font-size: 12px;width: 100%;}
+		table th,table td{
+			border: 1px solid #ccc;
+		}
+	</style>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">体脂率计算器</h1>
+		</header>
+		<div class="mui-content">
+
+			<form class="mui-input-group">
+				<div class="mui-input-row mui-radio ">
+					<label>男性</label>
+					<input class="radio-sex" name="sex" type="radio" value="1">
+				</div>
+				<div class="mui-input-row mui-radio ">
+					<label>女性</label>
+					<input class="radio-sex" name="sex" type="radio" value="0">
+				</div>
+				<div class="mui-input-row">
+					<label>年龄</label>
+					<input id="age" type="text" placeholder="请输入年龄">
+				</div>
+				<div class="mui-input-row">
+					<label>身高（米）</label>
+					<input id="height" type="text" placeholder="请输入身高">
+				</div>
+				<div class="mui-input-row">
+					<label>体重（公斤）</label>
+					<input id="weight" type="text" placeholder="请输入体重">
+				</div>
+				<div class="tizhilv">
+					<p>您的体脂率为：</p>
+					<div id="tizhilv-num">%</div>
+				</div>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="btn-reckon">开始计算</button>
+				<div>
+					<table >
+						<tr>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>偏瘦</th>
+							<th>正常</th>
+							<th>微胖</th>
+							<th>肥胖</th>
+						</tr>
+						<tr>
+							<td rowspan="2">男性</td>
+							<td>30岁以下</td>
+							<td>13%以下</td>
+							<td>14%～20%</td>
+							<td>21%～25%</td>
+							<td>25%以上</td>
+						</tr>
+						<tr>
+							<td>30岁以上</td>
+							<td>16%以下</td>
+							<td>17%～23%</td>
+							<td>24%～25%</td>
+							<td>25%以上</td>
+						</tr>
+						<tr>
+							<td rowspan="2">女性</td>
+							<td>30岁以下</td>
+							<td>16%以下</td>
+							<td>17%～24%</td>
+							<td>25%～20%</td>
+							<td>30%以上</td>
+						</tr>
+						<tr>
+							<td>30岁以上</td>
+							<td>19%以下</td>
+							<td>20%～27%</td>
+							<td>28%～30%</td>
+							<td>30%以上</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: true
+			});
+			mui.plusReady(function() {
+				document.getElementById("btn-reckon").addEventListener("tap", function() {
+					reckon()
+				})
+			})
+
+			function reckon() {
+				//获取性别
+				var radio_sex = mui(".radio-sex");
+				var sex;
+				for(var i = 0; i < radio_sex.length; i++) {
+					if(radio_sex[i].checked) {
+						sex = radio_sex[i].value;
+					}
+				};
+				var age = document.getElementById("age").value;
+				var height = document.getElementById("height").value;
+				var weight = document.getElementById("weight").value;
+				var bmi = weight / (height * height);
+				var tizhilv = 1.2 * bmi + 0.23 * age - 5.4 - 10.8 * sex;
+				document.getElementById("tizhilv-num").innerHTML = tizhilv.toFixed(2) + "%"
+			}
+		</script>
+	</body>
+
+</html>
