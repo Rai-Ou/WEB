@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var test="  111aaa  ";
+			//字符串去首尾空格
+			console.log(test.trim())
+			//字符串删除某文字
+			console.log(test.split("a").join(""))
+			//字符串替换
+			console.log(test.replace(/1/g,""))
+			//字符串转数组
+			function strToArr(arr){
+				var newArr=[];
+				for (var i=0;i<arr.length;i++) {
+					newArr.push(arr[i])
+				}
+				console.log(newArr)
+			}
+			strToArr(test)
+		</script>
+	</body>
+</html>

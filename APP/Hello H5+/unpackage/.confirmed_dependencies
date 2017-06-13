@@ -1,0 +1,88 @@
+{
+	"index.html": {
+		"resources": [
+			"css/common.css",
+			"js/update.js",
+			"js/shortcut.js",
+			"js/immersed.js"
+		],
+		"refer": [
+			"plus/file.html",
+			"plus/accelerometer.html",
+			"plus/audio.html",
+			"plus/device.html",
+			"plus/downloader.html",
+			"plus/events.html",
+			"plus/gallery.html",
+			"plus/geolocation.html",
+			"plus/maps.html",
+			"plus/message.html",
+			"plus/nativeobj.html",
+			"plus/nativeui.html",
+			"plus/payment.html",
+			"plus/orientation.html",
+			"plus/push.html",
+			"plus/xhr.html",
+			"plus/njs.html",
+			"plus/statistic.html",
+			"plus/oauth.html"
+		]
+	},
+	"plus/file.html": {
+		"resources": [
+			"js/common.js",
+			"img/fdisk.png",
+			"img/fup.png",
+			"img/ffile.png",
+			"img/fdir.png"
+		]
+	},
+	"plus/audio.html": {
+		"resources": [
+			"img/astop.png",
+			"img/arecord.png"
+		]
+	},
+	"plus/maps_map.html": {
+		"resources": [
+			"plus/maps_map_sub.html"
+		],
+		"refer": [
+			"plus/maps_map_sub.html"
+		]
+	},
+	"plus/maps.html": {
+		"refer": [
+			"plus/maps_map.html"
+		]
+	},
+	"plus/nativeobj.html": {
+		"refer": [
+			"plus/nativeobj_animation.html"
+		]
+	},
+	"plus/orientation.html": {
+		"refer": [
+			"plus/orientation_level.html",
+			"plus/orientation_compass.html"
+		]
+	},
+	"plus/orientation_level.html": {
+		"resources": [
+			"img/orientationl.png",
+			"img/orientationbg.png",
+			"img/orientationb.png"
+		]
+	},
+	"plus/orientation_compass.html": {
+		"resources": [
+			"img/orientationa.png",
+			"img/orientationc.png"
+		]
+	},
+	"plus/njs.html": {
+		"refer": [
+			"plus/njs_efficient.html"
+		]
+	}
+}
