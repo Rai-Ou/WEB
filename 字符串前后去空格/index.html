@@ -13,7 +13,10 @@
 			//字符串删除某文字
 			console.log(test.split("a").join(""))
 			//字符串替换
-			console.log(test.replace(/1/g,""))
+			var a=1;
+			var re=eval("/"+a+"/g")
+			console.log(re)
+			console.log(test.replace(re,""))
 			//字符串转数组
 			function strToArr(arr){
 				var newArr=[];
