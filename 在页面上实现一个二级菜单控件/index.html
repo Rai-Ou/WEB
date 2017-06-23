@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>在一个页面上实现二级菜单控件</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.btn {
+				position: absolute;
+			}
+			
+			#right-top {
+				right: 0;
+			}
+			
+			#left-bottom {
+				bottom: 0;
+			}
+			
+			#right-bottom {
+				right: 0;
+				bottom: 0;
+			}
+			ul{list-style: none;}
+			#menu-1{border: 1px solid #666;width: 80px;}
+			#menu-1 > li{position: relative;}
+			.menu-2{display: none;position: absolute;top:0;left: -82px;border: 1px solid #666;width: 80px;}
+			#menu-1 > li:hover ul{display: block;}
+		</style>
+	</head>
+
+	<body>
+		<div class="btn" id="left-top"><button >点击</button></div>
+		<div class="btn" id="left-bottom"><button>点击</button></div>
+		<div class="btn" id="right-top"><button>点击</button></div>
+		<div class="btn" id="right-bottom"><button>点击</button></div>
+
+		
+		<script type="text/javascript">
+			var btn=document.getElementsByClassName("btn")
+				for(var i=0;i<btn.length;i++){
+					btn[i].onmouseenter=function(event){
+						menus(this)
+					}
+					btn[i].onmouseleave=function(event){
+						this.removeChild(this.lastChild)
+					}
+				}
+			
+			function menus(el) {
+				var menu=document.createElement("div");
+				menu.id="menu";
+				menu.style.position="absolute";
+				menu.style.right=0+"px";
+				menu.style.bottom=el.offsetHeight+"px";
+				menu.innerHTML="<ul id='menu-1'><li>一级菜单1<ul class='menu-2'><li>二级菜单1</li><li>二级菜单2</li><li>二级菜单3</li><li>二级菜单4</li></ul></li><li>一级菜单2</li><li>一级菜单3</li><li>一级菜单4</li><li>一级菜单5</li></ul>"
+				el.appendChild(menu);
+				
+				if(el.offsetLeft<menu.offsetWidth){					
+					menu.style.left=0+"px";
+					var menu2= document.getElementsByClassName("menu-2");
+					for(var i=0;i<menu2.length;i++){
+						menu2[i].style.left=80+"px"
+					}
+				}
+				if(el.offsetTop<menu.offsetHeight){
+					menu.style.top=el.offsetHeight+"px"
+				}
+			}
+		</script>
+	</body>
+
+</html>
