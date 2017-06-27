@@ -10,6 +10,20 @@
 			var test="  111aaa  ";
 			//字符串去首尾空格
 			console.log(test.trim())
+			function qukongge(str){
+				var temp=[];
+				for(var i=0;i<str.length;i++){
+					if(str[i]!=" "){
+						temp.push(str[i])
+					}
+				}return temp.join("")
+			}
+			console.log(qukongge(test));
+			String.prototype.qkg=function()
+		{
+     return this.replace(/(^\s*)|(\s*$)/g,"");
+}
+		console.log(test.qkg())
 			//字符串删除某文字
 			console.log(test.split("a").join(""))
 			//字符串替换

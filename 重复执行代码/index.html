@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Obj = function(msg){
+				 var time="";
+    this.msg = msg;
+    this.shout = function(){
+        alert(this.msg);
+    }  
+    this.waitAndShout = function(){
+        //隔五秒钟后执行上面的shout方法
+       
+        time=setInterval(Obj.shot,5000)
+    }
+}
+		</script>
+	</body>
+</html>

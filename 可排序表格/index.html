@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>可排序表格</title>
+	</head>
+
+	<body>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr id="title"></tr>
+
+		</table>
+		<script type="text/javascript">
+			data = {
+				"学生": [{
+						"姓名": "小明",
+						"数学": 100,
+						"语文": 100,
+						"英语": 100
+					},
+					{
+						"姓名": "小强",
+						"数学": 80,
+						"语文": 80,
+						"英语": 90
+					}, {
+						"姓名": "小红",
+						"数学": 90,
+						"语文": 90,
+						"英语": 80
+					}
+				]
+			}
+			var title = document.getElementById("title");
+			var table = document.getElementsByTagName("table")[0];
+			for(var i in data.学生[0]) {
+				title.innerHTML += "<th>" + i + "</th>"
+			}
+			title.onclick = function(event) {
+				for(var i = 0; i < data.学生.length; i++) {
+					document.getElementById("data-" + i).remove()
+				}
+				var val = event.target.innerText;
+				data.newdata =
+					data.学生.sort(function(a, b) {
+						return a[val] - b[val]
+					});
+				getData(data.newdata)
+			}
+			getData(data.学生)
+
+			function getData(data) {
+				for(var i = 0; i < data.length; i++) {
+					var _tr = document.createElement("tr");
+					_tr.id = "data-" + i;
+					for(var key in data[i]) {
+						var _td = "<td>" + data[i][key] + "</td>"
+						_tr.innerHTML += _td
+					}
+					table.appendChild(_tr)
+				}
+			}
+		</script>
+	</body>
+
+</html>

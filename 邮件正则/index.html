@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	
+	</head>
+	<body>
+	<input type="text" id="input" value="请输入内容"/>
+		<script type="text/javascript">
+//		邮件正则	
+//		isEmail("aaa@111.com")
+//			function isEmail(str){
+//				var re=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+//				console.log(re.test(str))
+//			}
+
+
+//		生成子元素
+//		var p=document.createElement("p");
+//		p.className="slogan";
+//		p.innerText="淘！你喜欢"
+//		var div=document.createElement("div");
+//		div.id="example"
+//		div.appendChild(p)
+//		document.body.appendChild(div)
+
+
+//		输入框样式
+		var inputText=document.getElementById("input");
+		inputText.onfocus=function(){
+			this.value="11"
+		};
+		inputText.onblur=function(){
+			
+			inputText.value="请输入内容"
+		}
+		</script>
+	</body>
+</html>
