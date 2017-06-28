@@ -20,6 +20,25 @@
 			}
 			
 			console.log(quchong(a).join(""))
+
+			Array.prototype.quchong2=function(){
+				var temp=[];
+				for (var i=0;i<this.length;i++) {
+					if(this.indexOf(this[i])==i){
+						temp.push(this[i])
+					}
+				}
+				return temp
+			}
+			var test=[1,1,2,2,33,33]
+			console.log(test.quchong2())
+			
+			String.prototype.trim1 = function() { 
+ 			 return this.replace(/(^\s*)|(\s*$)/g, ''); 
+ 
+			}; 
+  var s="   111223   "
+  console.log(s.trim1())
 var arr = [1,6,3,5,2,7,4];
 function add(arr){
 	for(var i = 0; i <arr.length-1; i++){
